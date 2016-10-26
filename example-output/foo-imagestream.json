@@ -1,0 +1,11 @@
+{
+  "kind": "ImageStream",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "foo",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "tags": []
+  }
+}

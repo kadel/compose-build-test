@@ -1,0 +1,41 @@
+{
+  "kind": "BuildConfig",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "foo",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "triggers": [
+      {
+        "type": "ConfigChange"
+      },
+      {
+        "type": "ImageChange"
+      }
+    ],
+    "runPolicy": "Serial",
+    "source": {
+      "type": "Git",
+      "git": {
+        "uri": "https://github.com/kadel/compose-build-test.git",
+        "ref": "master"
+      },
+      "contextDir": "./build"
+    },
+    "strategy": {
+      "type": "Docker"
+    },
+    "output": {
+      "to": {
+        "kind": "ImageStreamTag",
+        "name": "foo:latest"
+      }
+    },
+    "resources": {},
+    "postCommit": {}
+  },
+  "status": {
+    "lastVersion": 0
+  }
+}

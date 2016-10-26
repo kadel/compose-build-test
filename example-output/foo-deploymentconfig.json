@@ -1,0 +1,62 @@
+{
+  "kind": "DeploymentConfig",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "foo",
+    "creationTimestamp": null,
+    "labels": {
+      "service": "foo"
+    }
+  },
+  "spec": {
+    "strategy": {
+      "resources": {}
+    },
+    "triggers": [
+      {
+        "type": "ConfigChange"
+      },
+      {
+        "type": "ImageChange",
+        "imageChangeParams": {
+          "automatic": true,
+          "containerNames": [
+            "foo"
+          ],
+          "from": {
+            "kind": "ImageStreamTag",
+            "name": "foo:latest"
+          }
+        }
+      }
+    ],
+    "replicas": 1,
+    "test": false,
+    "selector": {
+      "service": "foo"
+    },
+    "template": {
+      "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+          "service": "foo"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "foo",
+            "image": " ",
+            "args": [
+              "sleep",
+              "3600"
+            ],
+            "resources": {}
+          }
+        ],
+        "restartPolicy": "Always"
+      }
+    }
+  },
+  "status": {}
+}
