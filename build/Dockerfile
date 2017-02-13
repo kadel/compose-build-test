@@ -1,5 +1,5 @@
 FROM busybox
 
 
-RUN touch /test
+RUN echo $FOO > /test
 
