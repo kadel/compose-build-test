@@ -2,6 +2,9 @@ version: "2"
 
 services:
     foo:
-        build: "./build"
-        command: "sleep 3600"
+        build:
+          context: "./build"
+          args: 
+            FOOT: test
+        command: "cat test && sleep 3600"
 
