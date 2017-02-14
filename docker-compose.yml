@@ -5,6 +5,6 @@ services:
         build:
           context: "./build"
           args: 
-            FOOT: test
-        command: "cat test && sleep 3600"
+            FOO: test
+        command: "sh -c 'cat test && sleep 3600'"
 
